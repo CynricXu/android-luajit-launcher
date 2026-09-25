@@ -68,6 +68,7 @@ object DeviceInfo {
         INKBOOKFOCUS,
         INKBOOKFOCUS_PLUS,
         INKPALM_PLUS,
+        IREADER_NEO3_ULTRA,
         JDREAD,
         LENOVO_SMARTPAPER,
         LINFINY_ENOTE,
@@ -733,6 +734,10 @@ object DeviceInfo {
             BRAND == STR_TOLINO && MODEL == "imx50_rdp"
             || MODEL == STR_TOLINO && (DEVICE == "tolino_vision2" || DEVICE == STR_NTX)
             -> Id.TOLINO
+
+            // iReader Neo 3 Ultra
+            BRAND == "ireader" && (MODEL == "neo 3 ultra" || DEVICE.startsWith("rm06l") || PRODUCT.startsWith("rm06l"))
+            -> Id.IREADER_NEO3_ULTRA
 
             // Topjoy
 	        MANUFACTURER == "topjoy" && MODEL == "e602"

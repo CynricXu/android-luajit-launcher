@@ -2357,6 +2357,17 @@ local function run(android_app_state)
         end)
     end
 
+    android.einkPrepareRipple = function(effect)
+        JNI:context(android.app.activity.vm, function(jni)
+            jni:callVoidMethod(
+                android.app.activity.clazz,
+                "einkPrepareRipple",
+                "(I)V",
+                ffi.new("int32_t", effect or 0)
+            )
+        end)
+    end
+
     android.einkUpdate = function(mode)
         if not mode then return end
         JNI:context(android.app.activity.vm, function(jni)
